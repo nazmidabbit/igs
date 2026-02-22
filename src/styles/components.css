@@ -261,6 +261,106 @@
         grid-template-columns: repeat(2, 1fr);
         grid-auto-rows: 220px;
     }
+
+    .bento-content h3 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Prayer Times Modernization */
+.prayer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.prayer-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: var(--radius-md);
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: var(--transition);
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+}
+
+.prayer-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--primary);
+    transform: scaleX(0);
+    transition: var(--transition);
+    transform-origin: left;
+}
+
+.prayer-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.prayer-card:hover::before {
+    transform: scaleX(1);
+}
+
+.prayer-icon-container {
+    width: 64px;
+    height: 64px;
+    background: var(--primary-dark);
+    color: var(--secondary);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 20px rgba(6, 78, 59, 0.2);
+    transition: var(--transition);
+}
+
+.prayer-card:hover .prayer-icon-container {
+    transform: scale(1.1) rotate(5deg);
+    background: var(--primary);
+}
+
+.prayer-name {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+.prayer-time-display {
+    font-size: 2.5rem;
+    font-weight: 950;
+    color: var(--primary);
+    letter-spacing: -0.05em;
+}
+
+.glass-prayer {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-lg);
+    padding: 4rem;
+    box-shadow: var(--shadow-lg);
+}
+
+@media (max-width: 768px) {
+    .glass-prayer {
+        padding: 2rem 1.5rem;
+    }
 }
 
 @media (max-width: 640px) {
